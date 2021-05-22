@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<div id=pageContainer>
+
+<br/>
+
+<div id = "form">
+
+
+	<h2 class= "words"> BOOK </h2>
+	<h2 class= "words"> AN APPINTMENT </h2>
+
+	<div>
+  <form id="myform" action="/action_page.php">
+<!--     <label for="fname">First Name</label> -->
+    <input type="text" id="fname" name="firstname" placeholder="Your first name">
+
+<!--     <label for="lname">Last Name</label> -->
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+<!--     <label for="manicurist">Manicurist</label> -->
+    <select id="manicurist" name="manicurist">
+      <option value="any">Please choose a manicurist...</option>	
+      <option value="connie">Connie</option>
+      <option value="ashely">Ashely</option>
+      <option value="sunny">Sunny</option>
+    </select>
+
+<label for="date">Please choose a date</label>
+    <input type="date" value="2021-05-10">
+
+
+      <select id="time" name="time">
+      <option value="any">Please choose a time...</option>	
+      <option value="10">10:00</option>
+      <option value="11">11:00</option>
+      <option value="12">12:00</option>
+    </select>
+
+
+      <!--     <label for="fname">First Name</label> -->
+    <textarea id="myTextarea" rows="10" cols="80" > Additional Request:
+    </textarea>
+<!--     <input type="submit" onclick="myFunction()" value="Submit"> -->
+
+    <button type="button" onclick="myFunction()">Try it</button>
+    <button type="button" onclick="clearFunction()">Clear</button>
+	<p id="demo"></p>
+
+	<div id="result"></div>
+
+
+
+  </form>
+</div>
+
+
+</div>
+
+	<script>
+function myFunction() {
+  var x = document.getElementById("myTextarea").value;
+  document.getElementById("demo").innerHTML = x;
+
+			  if (typeof(Storage) !== "undefined") {
+			  // Store
+			  localStorage.setItem("lastname", x+"local storage");
+			  // Retrieve
+			  document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+			} else {
+			  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+			}
+}
+
+function clearFunction(){
+	localStorage.clear();
+	document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+}
+// if (typeof(Storage) !== "undefined") {
+//   // Store
+//   localStorage.setItem("textInfo", x);
+//   // Retrieve
+//   document.getElementById("result").innerHTML = localStorage.getItem("textInfo");
+// } else {
+//   document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+// }
+
+
+
+</script>
+
+</body>
+</html>
